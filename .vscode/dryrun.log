@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/nishan/Desktop/adventure_beta'
+g++ -Wall -Wextra -std=c++17 -ggdb -Iinclude -Llib src/main.cpp -o bin/main -lsfml-graphics -lsfml-window -lsfml-system
+make: Leaving directory '/home/nishan/Desktop/adventure_beta'
+ 
