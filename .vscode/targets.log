@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul  6 20:05:40 2022
+# Make data base, printed on Mon Jul 11 07:47:58 2022
 
 # Variables
 
@@ -32,6 +32,8 @@ VSCODE_LOG_NATIVE = false
 NVM_INC = /home/nishan/.nvm/versions/node/v14.4.0/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -51,7 +53,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:47064
+JOURNAL_STREAM = 8:47975
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -59,7 +61,7 @@ MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 1
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/terminator.desktop
 # environment
 USERNAME = nishan
 # environment
@@ -69,13 +71,13 @@ MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=22408401cbca12868822c03c62c2a7eb
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1735
+MANAGERPID = 1741
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -89,7 +91,7 @@ PATH = /home/nishan/.nvm/versions/node/v14.4.0/bin:/home/nishan/.local/bin:/usr/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/Anon:@/tmp/.ICE-unix/1947,unix/Anon:/tmp/.ICE-unix/1947
+SESSION_MANAGER = local/Anon:@/tmp/.ICE-unix/1953,unix/Anon:/tmp/.ICE-unix/1953
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -101,7 +103,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 676115740e60467e96655889925bb37c
+INVOCATION_ID = a6136ee65e674060a7b578104322cddb
 # makefile (from 'Makefile', line 7)
 LIB := lib
 # default
@@ -112,6 +114,8 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4083
 # automatic
 %F = $(notdir $%)
 # environment
@@ -123,7 +127,7 @@ PWD = /home/nishan/Desktop/adventure_beta
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1910
+SSH_AGENT_PID = 1914
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -171,7 +175,7 @@ CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ff8a46d4-92c1-4a22-8619-5127090044cf.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-604bf651-b778-4356-a050-7926ad500dfb.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -190,6 +194,10 @@ XDG_CURRENT_DESKTOP = Unity
 LC_TELEPHONE = bho_NP
 # default
 MAKE_COMMAND := make
+# environment
+OLDPWD = /home/nishan
+# environment
+TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
 .VARIABLES := 
 # automatic
@@ -211,7 +219,7 @@ GDK_BACKEND = x11
 # environment
 LC_PAPER = bho_NP
 # environment
-NO_AT_BRIDGE = 1
+LC_IDENTIFICATION = bho_NP
 # environment
 QT_ACCESSIBILITY = 1
 # environment
@@ -233,13 +241,9 @@ LC_ALL = C
 # makefile (from 'Makefile', line 9)
 LIBRARIES := -lsfml-graphics -lsfml-window -lsfml-system
 # environment
-DBUS_STARTER_BUS_TYPE = session
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/591fe68d_6466_4b5d_b3fd_5fe7ca4dfa37
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.4049
 # default
 SUFFIXES := 
 # environment
@@ -249,7 +253,7 @@ WINDOWPATH = 2
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-LC_IDENTIFICATION = bho_NP
+GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
@@ -259,11 +263,13 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 78868
+TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=22408401cbca12868822c03c62c2a7eb
+VSCODE_PID = 4415
+# environment
+TERMINATOR_UUID = urn:uuid:b0ffd071-568a-4b31-bbc3-9aa386e72f1d
 # variable set hash-table stats:
-# Load=126/1024=12%, Rehash=0, Collisions=19/156=12%
+# Load=129/1024=13%, Rehash=0, Collisions=24/159=15%
 
 # Pattern-specific Variable Values
 
@@ -271,10 +277,11 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=22408401cbca12868822c03
 
 # Directories
 
-# . (device 2050, inode 3154313): 10 files, no impossibilities.
-# src (device 2050, inode 3155333): 6 files, no impossibilities.
+ 
+# . (device 2050, inode 3154313): 11 files, no impossibilities.
+# src (device 2050, inode 3155333): 9 files, no impossibilities.
 
-# 16 files, no impossibilities in 2 directories.
+# 20 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -292,7 +299,6 @@ all: bin/main
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-06-29 16:44:43.311417
 #  File has been updated.
 #  Successfully updated.
@@ -321,13 +327,13 @@ clean:
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-06 13:20:25.889360604
+#  Last modified 2022-07-10 23:27:09.435216396
 #  File has been updated.
 #  Successfully updated.
 
 bin/main: src/main.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-06 19:12:18.255680693
+#  Last modified 2022-07-10 23:45:21.788251072
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 20):
@@ -341,12 +347,12 @@ bin/main: src/main.cpp
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 186 B / avg = 8 B
-# current buf: size = 8162 B / used = 186 B / count = 23 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 224 B / avg = 8 B
+# current buf: size = 8162 B / used = 224 B / count = 27 / avg = 8 B
 
-# strcache performance: lookups = 38 / hit rate = 39%
+# strcache performance: lookups = 42 / hit rate = 35%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=2/38=5%
-# Finished Make data base on Wed Jul  6 20:05:40 2022
+# Load=27/8192=0%, Rehash=0, Collisions=2/42=5%
+# Finished Make data base on Mon Jul 11 07:47:58 2022
 
  

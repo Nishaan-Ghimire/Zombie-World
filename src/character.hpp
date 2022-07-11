@@ -6,6 +6,7 @@ class Character{
     } pos;
 
     float playerspeed = 5.0f;
+    
     public:
 
 };

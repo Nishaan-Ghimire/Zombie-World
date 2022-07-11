@@ -1,6 +1,24 @@
 #pragma once
 #include "header.hpp"
 
+class Bullet;
+
+class Bullets
+{
+protected:
+    vector<Bullet> ammunations;
+    // vector<Bullet> enemyammunations;
+
+    Vector2f bulletOrigin;
+    // int enemyshootTimer = 0;
+    int shootTimer = 0;
+    friend class Game;
+    friend class Bullet;
+};
+
+
+
+
 class Bullet
 {
 protected:
@@ -8,6 +26,9 @@ protected:
     float damage = 20;
     // Bullet speed
     Vector2f speed = Vector2f(10.0f, 10.0f);
+    //used or unused flag
+    bool fired = false;
+        //  Vector2f enemyBulletOrigin;
 
     // Bullet position
     struct bulletPos
@@ -21,12 +42,16 @@ protected:
 
 public:
     Bullet();
-    void changeDirection(Direction);
+    void changeDirection(Direction,RectangleShape &,Vector2f &);
     Vector2f getPosition();
     friend class Game;
 };
 
-Bullet ::Bullet() : bullet(Vector2f(40.0f, 30.0f))
+
+
+
+
+Bullet ::Bullet() : bullet(Vector2f(25.0f, 20.0f))
 {
     position.x = 200.0f;
     position.y = 200.0f;
@@ -35,45 +60,40 @@ Bullet ::Bullet() : bullet(Vector2f(40.0f, 30.0f))
     bullet.setTexture(&bulletTexture);
 }
 
-void Bullet ::changeDirection(Direction playerDirection)
+
+void Bullet ::changeDirection(Direction playerDirection, RectangleShape & R, Vector2f & s)
 {
+ 
     
-    switch (playerDirection)
-    {
-    case Left:
-    speed.x = -10.0f;
-    speed.y = 0.0f;
-    bullet.setRotation(-90);
-        break;
-    case Up:
-    speed.x = 0.0f;
-    speed.y = -10.0f;
-    bullet.setRotation(0);
-        break;
-    case Down:
-    speed.x = 0.0f;
-    speed.y = 10.0f;
-    bullet.setRotation(180);
-        break;
-    case Right:
-    speed.x = 10.0f;
-    speed.y = 0.0f;
-    bullet.setRotation(90);
-        break;
-    }
+        switch (playerDirection)
+        {
+        case Left:
+            s.x = -10.0f;
+            s.y = 0.0f;
+            R.setRotation(-90);
+            break;
+        case Up:
+            s.x = 0.0f;
+            s.y = -10.0f;
+            R.setRotation(0);
+            break;
+        case Down:
+            s.x = 0.0f;
+            s.y = 10.0f;
+            R.setRotation(180);
+            break;
+        case Right:
+            s.x = 10.0f;
+            s.y = 0.0f;
+            R.setRotation(90);
+            break;
+        }
+   
 }
+
+
 
 Vector2f Bullet ::getPosition()
 {
     return bullet.getPosition();
 }
-
-class Bullets
-{
-protected:
-    vector<RectangleShape> ammunations;
-
-    Vector2f bulletOrigin;
-    int shootTimer = 0;
-    friend class Game;
-};
