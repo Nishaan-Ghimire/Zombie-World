@@ -10,6 +10,7 @@ protected:
     // vector<Bullet> enemyammunations;
 
     Vector2f bulletOrigin;
+    //  Vector2f enemyBulletOrigin;
     // int enemyshootTimer = 0;
     int shootTimer = 0;
     friend class Game;
@@ -28,7 +29,7 @@ protected:
     Vector2f speed = Vector2f(10.0f, 10.0f);
     //used or unused flag
     bool fired = false;
-        //  Vector2f enemyBulletOrigin;
+        
 
     // Bullet position
     struct bulletPos

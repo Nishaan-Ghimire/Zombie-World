@@ -5,11 +5,11 @@ class Player : public Character
 {
 protected:
     // Required variables & objects
-
+const pos originalPos = {0,580};
     pos davePos = {0, 580};
 // player life
    int playerlife = 100;
-
+    float daveLifesize = 100.0f;
     // player required object
     RectangleShape dave;
     RectangleShape davelife;
@@ -25,7 +25,7 @@ public:
 };
 
 // Initializing player object and loading player texture and setting player position in constructor
-Player::Player() : dave(Vector2f(100.0f, 100.0f)), davelife(Vector2f(50.0f,10.0f))
+Player::Player() : dave(Vector2f(100.0f, 100.0f)), davelife(Vector2f(daveLifesize,10.0f))
 {
     dave.setPosition(Vector2f(1.0f * davePos.x, 1.0f * davePos.y));
     davelife.setPosition(Vector2f(dave.getPosition().x,dave.getPosition().y-davelife.getSize().y));

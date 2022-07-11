@@ -39,7 +39,7 @@ private:
     Time sec;  
     Menu menu;
     int seconds;
-    int enemyspawnTimeInterval = 5;
+    int enemyspawnTimeInterval = 20;
     bool mainMenu = true;
     // Declaring the required game rendering and updating functions
     void processEvents();
@@ -100,11 +100,6 @@ void Game::update()
 // For starting Game
 if(Mouse::isButtonPressed(Mouse::Left))
 {
-      cout<<"Main Menu : "<<mainMenu<<endl;
-      cout<<"Mouse Position X : "<<Mouse::getPosition().x<<endl;
-      cout<<"Mouse Position Y : "<<Mouse::getPosition().y<<endl<<endl;
-      cout<<"Button Position X : "<<menu.playBtn.getPosition().x<<endl;
-      cout<<"Button Position Y : "<<menu.playBtn.getPosition().y<<endl<<endl;
 
     if( Mouse::getPosition(window).x >= menu.playBtn.getPosition().x  && Mouse::getPosition(window).x <= (menu.playBtn.getPosition().x+menu.playBtn.getSize().x)
  && Mouse::getPosition(window).x >= menu.playBtn.getPosition().y  && Mouse::getPosition(window).y <= (menu.playBtn.getPosition().y+menu.playBtn.getSize().y))
@@ -152,26 +147,19 @@ if(Mouse::isButtonPressed(Mouse::Left))
     // Setting bullet origin position
     BulletPack.bulletOrigin = Vector2f(player.dave.getPosition().x + (player.dave.getSize().x / 2) + 10.0f, player.dave.getPosition().y + (player.dave.getSize().y / 2) + 10.0f);
     
-  /*  
-    // Setting Enemy bullet Position
-    for (size_t i = 0; i < BulletPack.enemyammunations.size(); i++)
-    {
-    BulletPack.enemyammunations[i].enemyBulletOrigin = Vector2f(allEnemies.enemyGroup[i].enemy.getPosition().x + (allEnemies.enemyGroup[i].enemy.getSize().x / 2) + 10.0f, allEnemies.enemyGroup[i].enemy.getPosition().y + (allEnemies.enemyGroup[i].enemy.getSize().y / 2) + 10.0f);
-    }
+    
+ 
 
-        // Enemy Bullet timer
-    if (BulletPack.shootTimer < 10)
-        BulletPack.shootTimer++;
-*/
+   
     // Player Bullet timer 
     if (BulletPack.shootTimer < 10)
         BulletPack.shootTimer++;
 
 
         //Bullet initialization, movement and Direction control 
-    if ((Keyboard::isKeyPressed(Keyboard::LControl) || Keyboard::isKeyPressed(Keyboard::RControl)) && BulletPack.shootTimer >= 10)
+    if ((Keyboard::isKeyPressed(Keyboard::LControl) || Keyboard::isKeyPressed(Keyboard::RControl)) || Mouse::isButtonPressed(Mouse::Left) )
     {
-
+        if( BulletPack.shootTimer >= 10){
         // For every Rectangleshape bullet object which is to added to its vector structure is given origin as center of player
         bulletObj.bullet.setPosition(BulletPack.bulletOrigin);
         // Setting texture for every Rectangleshape bullet object
@@ -187,33 +175,9 @@ if(Mouse::isButtonPressed(Mouse::Left))
         BulletPack.shootTimer = 0;
     }
 
-
-/*
-
-for (size_t i = 0; i <allEnemies.enemyGroup.size(); i++)
-{
-
-        //Enemy Bullet initialization, movement and Direction control 
-    if (allEnemies.enemyGroup[i].enemypositions->x == 0 && allEnemies.enemyGroup[i].enemypositions->y == 0)
-    {
-
-        // For every Rectangleshape bullet object which is to added to its vector structure is given origin as center of player
-        bulletObj.bullet.setPosition(BulletPack.bulletOrigin);
-        // Setting texture for every Rectangleshape bullet object
-        bulletObj.bullet.setTexture(&bulletObj.bulletTexture);
-        // For changing bullet moving and texture direction by passing player direction enum as argument
-
-        bulletObj.changeDirection(player.playerDirection, bulletObj.bullet, bulletObj.speed);
-
-        // Loading ready Rectangleshape bullet object to ammunations vector
-        BulletPack.ammunations.push_back(bulletObj);
-
-        // resetting shoottimer to zero
-        BulletPack.shootTimer = 0;
-    }
 }
 
-*/
+ 
 
 
     // For enemies movement
@@ -239,7 +203,7 @@ for (size_t i = 0; i <allEnemies.enemyGroup.size(); i++)
     }
 
 
-
+// For Enemy and Bullet collision
 
 for (size_t i = 0; i < BulletPack.ammunations.size(); i++)
 {
@@ -256,26 +220,24 @@ for (size_t i = 0; i < BulletPack.ammunations.size(); i++)
 }
 
 
+// For Player and Enemy Collision
 
-
-
-
-
-
-
-/*
-       // For Enemy bullet movement and removing bullet
-    for (size_t i = 0; i < BulletPack.enemyammunations.size(); i++)
+for (size_t i = 0; i < allEnemies.enemyGroup.size(); i++)
+{
+    if(player.dave.getGlobalBounds().intersects(allEnemies.enemyGroup[i].enemy.getGlobalBounds()))
     {
-        // Making the every bullet move by changing position of all bullet inside vector
-        BulletPack.enemyammunations[i].bullet.move(BulletPack.enemyammunations[i].speed);
+     
+        player.daveLifesize -= 25;
+        player.dave.setPosition(player.originalPos.x, player.originalPos.y);
+        player.davelife.setPosition(Vector2f(player.dave.getPosition().x,player.dave.getPosition().y-player.davelife.getSize().y));
+        player.davelife.setSize(Vector2f(player.davelife.getSize().x - 25,player.davelife.getSize().y));
+        if(player.davelife.getSize().x <= 0)
+        {
 
-        // condition for erasing bullet if the cross the screen
-        if (BulletPack.enemyammunations[i].getPosition().y < 0 || BulletPack.enemyammunations[i].getPosition().y >= window.getSize().y ||
-            BulletPack.enemyammunations[i].getPosition().x < 0 || BulletPack.enemyammunations[i].getPosition().x >= window.getSize().x)
-            BulletPack.enemyammunations.erase(BulletPack.enemyammunations.begin() + i);
-    } 
-    */
+        }
+    }
+}
+
 
 
 }
@@ -332,18 +294,14 @@ void Game::render()
     {
         window.draw(BulletPack.ammunations[i].bullet);
     }
+     
+
 }
 window.display();
 
 
-        /*
-        for (size_t i = 0; i < BulletPack.enemyammunations.size(); i++)
-        {
-            window.draw(BulletPack.enemyammunations[i].bullet);
-        }
-        
-        
-        */
+  
+      
 
 }
 
